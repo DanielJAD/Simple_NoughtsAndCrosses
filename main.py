@@ -127,14 +127,11 @@ def find_turn(ai_moves, p1_moves):
 
     for i in [[0, 0], [0, 2], [2, 0], [2, 2]]:
         if store_wins[i[0], i[1]] != 0:
-            #print('I choose...')
-            #print([i[0], i[1]])
+
             return [i[0], i[1]]
 
     for i in [[0, 1], [1, 0], [1, 2], [2, 1]]:
         if store_wins[i[0], i[1]] != 0:
-            #print('I choose...')
-            #print([i[0], i[1]])
             return [i[0], i[1]]
 
     for i in [[0, 0], [0, 2], [2, 0], [2, 2], [0, 1], [1, 0], [1, 2], [2, 1]]:
