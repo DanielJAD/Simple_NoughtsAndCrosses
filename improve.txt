@@ -1,0 +1,4 @@
+- The entire file can be condensed by removing the concept of "moves" and instead continually maintaining a player moves
+ matrix and AI moves matrix.
+ - I do not like that these matrixes are computed so much, they should be continually moved around.
+ - Is there an option/ability for the game to be expanded to N X N games?
