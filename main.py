@@ -230,5 +230,3 @@ if __name__ == '__main__':
                 break
     if no_moves == 9:
         print('No-one won. Game Over.')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
