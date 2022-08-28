@@ -100,8 +100,6 @@ def how_many_wins(temp_score_mat, mark):
 def find_turn(ai_moves, p1_moves):
     score_mat = ai_moves - p1_moves
 
-    # print(score_mat)
-
     if score_mat[1, 1] == 0:
         return [1, 1]
 
@@ -118,12 +116,7 @@ def find_turn(ai_moves, p1_moves):
                     return [row, column]
                 store_wins[row, column] = wins_num
 
-    '''
-    if store_wins.sum == 0:
-        print('no moves will lead to wins, cba')
-    print(' ---- STORE WINS BELOW ------ ')
-    print(store_wins)
-    '''
+
 
     for i in [[0, 0], [0, 2], [2, 0], [2, 2]]:
         if store_wins[i[0], i[1]] != 0:
