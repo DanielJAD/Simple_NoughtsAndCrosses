@@ -1,4 +1,4 @@
-import numpy
+import random as rd
 import numpy as np
 
 board = [' - - - - - - - - ',
@@ -100,7 +100,7 @@ def how_many_wins(temp_score_mat, mark):
 def find_turn(ai_moves, p1_moves):
     score_mat = ai_moves - p1_moves
 
-    print(score_mat)
+    # print(score_mat)
 
     if score_mat[1, 1] == 0:
         return [1, 1]
@@ -117,21 +117,24 @@ def find_turn(ai_moves, p1_moves):
                     print('2 wins found!')
                     return [row, column]
                 store_wins[row, column] = wins_num
+
+    '''
     if store_wins.sum == 0:
         print('no moves will lead to wins, cba')
     print(' ---- STORE WINS BELOW ------ ')
     print(store_wins)
+    '''
 
     for i in [[0, 0], [0, 2], [2, 0], [2, 2]]:
         if store_wins[i[0], i[1]] != 0:
-            print('I choose...')
-            print([i[0], i[1]])
+            #print('I choose...')
+            #print([i[0], i[1]])
             return [i[0], i[1]]
 
     for i in [[0, 1], [1, 0], [1, 2], [2, 1]]:
         if store_wins[i[0], i[1]] != 0:
-            print('I choose...')
-            print([i[0], i[1]])
+            #print('I choose...')
+            #print([i[0], i[1]])
             return [i[0], i[1]]
 
     for i in [[0, 0], [0, 2], [2, 0], [2, 2], [0, 1], [1, 0], [1, 2], [2, 1]]:
@@ -170,7 +173,7 @@ def ai_turn(_moves, _chosen, _p1_mark, _ai_mark):
         print('\n'.join(fill_board(_moves)))
         return
 
-    print('No issues detected')
+    # print('No issues detected')
 
     turn_take = find_turn(ai_moves_mat, p1_moves_mat)
 
@@ -186,13 +189,22 @@ def ai_turn(_moves, _chosen, _p1_mark, _ai_mark):
 
 if __name__ == '__main__':
     print('This is a basic Tic-Tac-Toe Game.'
-          '\nLet\'s play.'
-          '\nYou were assigned crosses (X)')
+          '\nLet\'s play.')
+
     # Initialise:
-    p1_mark = 'X '
-    ai_mark = 'O '
+    turn = rd.randrange(0, 2)
+    if turn == 0:
+        ai_mark = 'O '
+        p1_mark = 'X '
+        print('You were assigned crosses (X)'
+              '\nYou go first.')
+    else:
+        print('You were assigned noughts (O)'
+              '\nThe AI will go first.')
+        p1_mark = 'O '
+        ai_mark = 'X '
+
     chosen = []
-    turn = 0
     no_moves = 0
     max_no_moves = 9
     moves = ['a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3']
